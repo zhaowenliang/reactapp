@@ -1,0 +1,3 @@
+[submodule "study-react-android"]
+	path = study-react-android
+	url = https://github.com/zhaowenliang/study-react-android.git
