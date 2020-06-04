@@ -4,6 +4,9 @@ import styles from './styles/study_styles';
 
 import AppRoute from '../native_modules/AppRoute';
 
+import AppRCTImageView from '../native_views/RCTImageView'
+
+
 export default function HomeScreen({ navigation, route }) {
   const [count, setCount] = React.useState(0);
 
@@ -21,11 +24,17 @@ export default function HomeScreen({ navigation, route }) {
     }
   }, [route.params?.post]);
 
+  const arr = [{ uri: 'https://facebook.github.io/react/logo-og.png' }];
+
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={require('../image/ic_vip.png')} />
       <Image
         source={{ uri: 'https://facebook.github.io/react/logo-og.png' }}
+        style={[styles.image, { width: 40, height: 40 }]} />
+
+      <AppRCTImageView  // 自定义View
+        src={arr}
         style={[styles.image, { width: 40, height: 40 }]} />
 
       <Text style={styles.text}>Home Screen</Text>
