@@ -28,28 +28,28 @@ export default function App() {
           name="Home"
           component={HomeScreen}
           options={({ navigation, route }) => ({
-            headerTitle: props => <LogoTitle {...props}/>,
+            headerTitle: props => <LogoTitle {...props} />,
           })}
-          // options={{
-          //   // headerTitle: props => <LogoTitle {...props} />,
-          //   headerRight: () => (
-          //     <Button
-          //       title="info"
-          //       color='#0F0'
-          //       onPress={() => alert('this is a button!')}/>
-          //   ),
-          // }}
+        // options={{
+        //   // headerTitle: props => <LogoTitle {...props} />,
+        //   headerRight: () => (
+        //     <Button
+        //       title="info"
+        //       color='#0F0'
+        //       onPress={() => alert('this is a button!')}/>
+        //   ),
+        // }}
         />
 
         <Stack.Screen
           name="Details"
           component={DetailsScreen}
-          initialParams={{ itemId: 42 }}/>
+          initialParams={{ itemId: 42 }} />
 
         <Stack.Screen
           name="CreatePost"
           component={CreatePostScreen}
-          options={({ route }) => ({ title: route.params?.name })}/>
+          options={({ route }) => ({ title: route.params?.name })} />
 
       </Stack.Navigator>
     </NavigationContainer>

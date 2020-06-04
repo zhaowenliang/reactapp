@@ -3,6 +3,8 @@ import { Button, Text, View } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import styles from './styles/study_styles';
 
+import ToastExample from '../native_modules/ToastExample';
+
 export default function DetailsScreen({ navigation, route }) {
   // 从route中取出参数
   const { itemId, otherParams } = route.params;
@@ -43,6 +45,12 @@ export default function DetailsScreen({ navigation, route }) {
         <Button
           title="Go back to first screen in stack"
           onPress={() => navigation.popToTop()}/>
+      </View>
+
+      <View style={styles.button}>
+        <Button
+          title="ToastExample"
+          onPress={() => ToastExample.showShort('这是原生提供的方法')}/>
       </View>
     </View>
   );
