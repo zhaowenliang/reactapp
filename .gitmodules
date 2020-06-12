@@ -1,6 +1,8 @@
 [submodule "android"]
 	path = android
 	url = https://github.com/zhaowenliang/study-react-android.git
+	ignore = dirty
 [submodule "ios"]
 	path = ios
 	url = https://github.com/zhaowenliang/study-react-ios.git
+	ignore = dirty
