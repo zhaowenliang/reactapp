@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
-import RouteTable from '@Router/RouteTable';
+import RouteTable from '@/study_navigation/router/RouteTable';
 
 export default class NavigationApp extends React.Component {
 

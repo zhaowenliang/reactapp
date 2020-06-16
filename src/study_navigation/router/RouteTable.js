@@ -1,5 +1,5 @@
-import HomeScreen from '@StudyNavigation/HomeScreen'
-import Page1Screen from '@StudyNavigation/Page1Screen'
+import HomeScreen from '@/study_navigation/HomeScreen'
+import Page1Screen from '@/study_navigation/Page1Screen'
 
 /**
  * 路由表
