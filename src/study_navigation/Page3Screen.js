@@ -7,7 +7,7 @@ export default class Page3Screen extends React.Component {
         const { params } = navigation.state;
 
         return {
-            title: params ? params.title : 'xin',
+            title: params ? params.title : 'this page3',
             headerStyle: {
                 backgroundColor: '#f00',
             },
@@ -18,7 +18,7 @@ export default class Page3Screen extends React.Component {
     render() {
         const { navigation } = this.props;
         const { state, setParams } = navigation;
-        const { params } = state;
+        const { params = {} } = state;
 
         const showText = params.mode === 'edit' ? '正在编辑' : '编辑完成';
 

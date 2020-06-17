@@ -20,6 +20,7 @@ export default class Page1Screen extends React.Component {
           title="to page2 screen"
           onPress={() => {
             navigation.navigate('Page2')
+            // navigation.navigate('Tab2')  // 在bottomTab中导航，需要导航到bottomTab配置的路由表中。
           }} />
 
         <View style={{ height: 10 }} />

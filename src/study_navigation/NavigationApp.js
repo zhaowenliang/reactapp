@@ -10,15 +10,15 @@ export default class NavigationApp extends React.Component {
   render() {
 
     let initialPageName = this.props.pageName;
-    let initialRouteParams = this.props.pageParams;
+    let initialPageParams = this.props.pageParams;
 
     if (initialPageName === undefined) {
       initialPageName = RoutePage.HOME;
     }
 
     const routerConfig = {
-      initialPageName: initialPageName,
-      initialRouteParams: initialRouteParams,
+      initialRouteName: initialPageName,
+      initialRouteParams: initialPageParams,
       mode: Platform.select({
         ios: 'card',
         android: 'card',

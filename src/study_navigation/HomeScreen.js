@@ -22,7 +22,7 @@ export default class HomeScreen extends React.Component {
 
         <Button
           title="Go to Page3"
-          onPress={() => navigate(RoutePage.PAGE3, { mode: 'edit' })}
+          onPress={() => navigate(RoutePage.PAGE3, { title: 'Page3', mode: 'edit' })}
         />
       </>
     );
