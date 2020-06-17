@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, Button, ToastAndroid, View } from 'react-native';
 
-import ToastExample from '@/native_modules/ToastExample';
-import AppRCTImageView from '@/native_views/RCTImageView';
+import ToastExample from '~/native_modules/ToastExample';
+import AppRCTImageView from '~/native_views/RCTImageView';
 
 
 export default class Page2Screen extends React.Component {

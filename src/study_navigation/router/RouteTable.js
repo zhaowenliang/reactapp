@@ -1,7 +1,7 @@
-import HomeScreen from '@/study_navigation/HomeScreen'
-import Page1Screen from '@/study_navigation/Page1Screen'
-import Page2Screen from '@/study_navigation/Page2Screen'
-import Page3Screen from '@/study_navigation/Page3Screen'
+import HomeScreen from '~/study_navigation/HomeScreen'
+import Page1Screen from '~/study_navigation/Page1Screen'
+import Page2Screen from '~/study_navigation/Page2Screen'
+import Page3Screen from '~/study_navigation/Page3Screen'
 
 /**
  * 路由页面

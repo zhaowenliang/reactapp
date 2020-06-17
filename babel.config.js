@@ -1,7 +1,7 @@
 // babel-plugin-root-import 导包路径别名
 const rootImportOpts = {
   root: __dirname,
-  rootPathPrefix: '@',
+  rootPathPrefix: '~',
   rootPathSuffix: 'src',
 };
 
