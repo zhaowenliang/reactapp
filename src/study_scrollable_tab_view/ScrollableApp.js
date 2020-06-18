@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconFont from 'react-native-vector-icons/FontAwesome';
+
 import MyTabBar from './MyTabBar';
 
 
@@ -26,9 +27,12 @@ export default class ScrollableApp extends React.Component {
                 style={styles.container}
                 renderTabBar={() => <MyTabBar tabNames={tabNames} tabIconNames={tabIconNames} />}
                 tabBarPosition={'bottom'}
-                locked={false}
-                initialPage={0}
-                prerenderingSiblingsNumber={1}
+                locked={false}   // 是否可以滑动，true：不可以滑动，false：可以滑动，默认false。
+                initialPage={0}  // 默认页索引
+                prerenderingSiblingsNumber={1}  // 预渲染tab页个数，Infinity：预渲染所有，默认0。
+                scrollWithoutAnimation={true}   // 切换tab是否不适用动画，true：不使用动画，false：使用动画，默认false。
+                tabBarBackgroundColor='white'   // tabar背景颜色，通过props传入renderTabBar，使用props.backgroundColor取出。
+                tabBarActiveTextColor='green'   // 激活状态tab文本颜色。
             >
 
                 <View tabLabel="page1" style={styles.center}>
