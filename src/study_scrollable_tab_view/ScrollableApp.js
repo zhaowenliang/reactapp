@@ -1,13 +1,19 @@
 import React from 'react';
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import Icon from 'react-native-vector-icons/Ionicons';
-import IconFont from 'react-native-vector-icons/FontAwesome';
 
 import MyTabBar from './MyTabBar';
+import HomeScreen from '~/study_navigation/HomeScreen';
+import Page1Screen from '~/study_navigation/Page1Screen';
+import Page2Screen from '~/study_navigation/Page2Screen';
+import Page3Screen from '~/study_navigation/Page3Screen';
 
 
 export default class ScrollableApp extends React.Component {
+
+    static navigationOptions = {
+        header: null,   // 主页无标题
+    }
 
     constructor(props) {
         super(props)
@@ -32,8 +38,64 @@ export default class ScrollableApp extends React.Component {
                 prerenderingSiblingsNumber={1}  // 预渲染tab页个数，Infinity：预渲染所有，默认0。
                 scrollWithoutAnimation={true}   // 切换tab是否不适用动画，true：不使用动画，false：使用动画，默认false。
                 tabBarBackgroundColor='white'   // tabar背景颜色，通过props传入renderTabBar，使用props.backgroundColor取出。
-                tabBarActiveTextColor='green'   // 激活状态tab文本颜色。
+                tabBarActiveTextColor='green'   // 激活状态tab文本颜色
             >
+
+                <HomeScreen
+                    tabLabel="page1"
+                    navigation={this.props.navigation}
+                />
+
+                <Page1Screen
+                    tabLabel="page2"
+                    navigation={this.props.navigation}
+                />
+
+                <Page2Screen
+                    tabLabel="page3"
+                    navigation={this.props.navigation}
+                />
+
+                <Page3Screen
+                    tabLabel="page4"
+                    navigation={this.props.navigation}
+                />
+
+            </ScrollableTabView>
+        )
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#F5FCFF',
+    },
+    center: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+    },
+    instructions: {
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 5,
+    },
+
+})
+
+
+/*
+
+import { View } from "react-native";
+
+import Icon from 'react-native-vector-icons/Ionicons';
+import IconFont from 'react-native-vector-icons/FontAwesome';
 
                 <View tabLabel="page1" style={styles.center}>
                     <Icon name="logo-github" size={50} />
@@ -63,30 +125,4 @@ export default class ScrollableApp extends React.Component {
                     </IconFont.Button>
                 </View>
 
-            </ScrollableTabView>
-        )
-    }
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#F5FCFF',
-    },
-    center: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-
-})
+*/

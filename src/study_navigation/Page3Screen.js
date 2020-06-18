@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, TextInput, Button } from 'react-native'
+import { Header } from 'react-navigation'
 
 export default class Page3Screen extends React.Component {
 
@@ -10,6 +11,7 @@ export default class Page3Screen extends React.Component {
             title: params ? params.title : 'this page3',
             headerStyle: {
                 backgroundColor: '#f00',
+                height: Header.HEIGHT,
             },
             headerTintColor: '#0f0',
         }

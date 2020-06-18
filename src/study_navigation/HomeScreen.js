@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 
-import { RoutePage } from '~/study_navigation/router/RouteTable'
+import RoutePage from '~/study_navigation/router/RouteConfig'
 
 
 export default class HomeScreen extends React.Component {

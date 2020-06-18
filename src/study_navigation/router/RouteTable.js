@@ -3,23 +3,17 @@ import Page1Screen from '~/study_navigation/Page1Screen'
 import Page2Screen from '~/study_navigation/Page2Screen'
 import Page3Screen from '~/study_navigation/Page3Screen'
 
-/**
- * 路由页面
- */
-export const RoutePage = {
-  HOME: 'Home',             // 首页
+import ScrollableApp from '~/study_scrollable_tab_view/ScrollableApp'
 
-  PAGE1: 'Page1',           // page1
+import RoutePage from './RouteConfig'
 
-  PAGE2: 'Page2',           // page2
-  
-  PAGE3: 'Page3',           // page3
-}
 
 /**
  * 路由表
  */
 export default RouteTable = {
+  [RoutePage.MAIN]: ScrollableApp,
+
   [RoutePage.HOME]: {
     screen: HomeScreen,
     navigationOptions: {

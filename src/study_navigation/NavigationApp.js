@@ -1,8 +1,10 @@
 import React from 'react';
-import { Platform } from 'react-native';
-import { createAppContainer, createStackNavigator } from 'react-navigation';
+import { View, Platform } from 'react-native';
+import { createAppContainer, createStackNavigator, Header } from 'react-navigation';
+import  StackViewStyleInterpolator from "react-navigation-stack/src/views/StackView/StackViewStyleInterpolator";
 
-import RouteTable, { RoutePage } from '~/study_navigation/router/RouteTable';
+import RouteTable from '~/study_navigation/router/RouteTable';
+import RoutePage from '~/study_navigation/router/RouteConfig'
 
 
 export default class NavigationApp extends React.Component {
@@ -13,8 +15,11 @@ export default class NavigationApp extends React.Component {
     let initialPageParams = this.props.pageParams;
 
     if (initialPageName === undefined) {
-      initialPageName = RoutePage.HOME;
+      initialPageName = RoutePage.MAIN;
     }
+
+    // 修改标题栏高度
+    Header.HEIGHT = 50;
 
     const routerConfig = {
       initialRouteName: initialPageName,
@@ -23,6 +28,20 @@ export default class NavigationApp extends React.Component {
         ios: 'card',
         android: 'card',
       }),
+
+      transitionConfig: () => ({
+          screenInterpolator: StackViewStyleInterpolator.forHorizontal,   // 页面切换动画
+        }
+      ),
+
+      headerLayoutPreset: 'center',       // 标题居中
+
+      defaultNavigationOptions: {
+        // header: null,     // 默认隐藏标题栏
+        headerStyle: {
+          height: Header.HEIGHT,          // 标题栏高度
+        }
+      }
     };
 
     const RootNavigator = createStackNavigator(RouteTable, routerConfig);

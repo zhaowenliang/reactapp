@@ -1,6 +1,9 @@
 import React from 'react';
 import { View, Text, Button, Image } from 'react-native';
 
+import RoutePage from '~/study_navigation/router/RouteConfig'
+
+
 export default class Page1Screen extends React.Component {
 
   static navigationOptions = {
@@ -19,7 +22,7 @@ export default class Page1Screen extends React.Component {
         <Button
           title="to page2 screen"
           onPress={() => {
-            navigation.navigate('Page2')
+            navigation.navigate(RoutePage.PAGE2)
             // navigation.navigate('Tab2')  // 在bottomTab中导航，需要导航到bottomTab配置的路由表中。
           }} />
 
