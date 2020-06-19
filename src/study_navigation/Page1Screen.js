@@ -6,6 +6,7 @@ import RoutePage from '~/study_navigation/router/RouteConfig'
 
 export default class Page1Screen extends React.Component {
 
+  // 如果不在路由表中配置navigationOptions，则会默认使用此处配置。
   static navigationOptions = {
     title: 'Page1Screen',
   }

@@ -1,19 +1,18 @@
 import React from 'react'
 import { View, Text, TextInput, Button } from 'react-native'
-import { Header } from 'react-navigation'
 
 export default class Page3Screen extends React.Component {
 
-    static navigationOptions = ({ navigation }) => {
+    static navigationOptions = ({ navigation, navigationOptions }) => {
         const { params } = navigation.state;
 
         return {
             title: params ? params.title : 'this page3',
             headerStyle: {
-                backgroundColor: '#f00',
-                height: Header.HEIGHT,
+                ...navigationOptions.headerStyle,   // 防止覆盖defaultNavigationOptions.headerStyle
+                backgroundColor: 'red',
             },
-            headerTintColor: '#0f0',
+            headerTintColor: 'green',
         }
     };
 

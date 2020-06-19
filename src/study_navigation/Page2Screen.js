@@ -7,9 +7,8 @@ import AppRCTImageView from '~/native_views/RCTImageView';
 
 export default class Page2Screen extends React.Component {
 
-  // 如果不在路由表中配置navigationOptions，则会默认使用此处配置。
   static navigationOptions = {
-    title: 'this page2',
+    header: null, // 默认隐藏标题栏
   }
 
   render() {

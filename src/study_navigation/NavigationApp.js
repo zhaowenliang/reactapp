@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Platform } from 'react-native';
+import { Platform } from 'react-native';
 import { createAppContainer, createStackNavigator, Header } from 'react-navigation';
 import  StackViewStyleInterpolator from "react-navigation-stack/src/views/StackView/StackViewStyleInterpolator";
 
@@ -37,10 +37,9 @@ export default class NavigationApp extends React.Component {
       headerLayoutPreset: 'center',       // 标题居中
 
       defaultNavigationOptions: {
-        // header: null,     // 默认隐藏标题栏
         headerStyle: {
           height: Header.HEIGHT,          // 标题栏高度
-        }
+        },
       }
     };
 

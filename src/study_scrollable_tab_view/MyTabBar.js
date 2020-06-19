@@ -32,7 +32,7 @@ export default class MyTabBar extends React.Component {
 
     componentDidMount() {
         // Animated.Value监听范围 [0, tab数量-1]
-        this.props.scrollValue.addListener(this.setAnimationValue);
+        // this.props.scrollValue.addListener(this.setAnimationValue);
     }
 
     setAnimationValue({ value }) {
