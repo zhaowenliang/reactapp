@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, BackHandler, Alert } from 'react-native';
+import { Platform, BackHandler, AppState, Alert } from 'react-native';
 import { createAppContainer, createStackNavigator, Header } from 'react-navigation';
 import StackViewStyleInterpolator from "react-navigation-stack/src/views/StackView/StackViewStyleInterpolator";
 
@@ -9,6 +9,13 @@ import RoutePage from '~/study_navigation/router/RouteConfig'
 
 export default class NavigationApp extends React.Component {
 
+  state = {
+    appState: AppState.currentState
+  };
+
+  /**
+   * 监听返回键处理
+   */
   backAction = () => {
     // 通过ref获取NavigationContainer，其中包含导航索引，当为0时，代表为根页面。
     const navigationContainer = this.page;
@@ -33,12 +40,28 @@ export default class NavigationApp extends React.Component {
     return false;
   }
 
+  /**
+   * 监听App前后台变化状态
+   * @param {新的状态} nextAppState 
+   */
+  _handleAppStateChange = nextAppState => {
+    // if (this.state.appState.match(/inactive|background/) && nextAppState === "active") {
+    //   console.log("App has come to the foreground!");
+    // }
+
+    console.log(`App has come to the ${nextAppState}!`);
+    
+    this.setState({ appState: nextAppState });
+  };
+
   componentDidMount() {
     BackHandler.addEventListener("hardwareBackPress", this.backAction);
+    AppState.addEventListener("change", this._handleAppStateChange);
   }
 
   componentWillUnmount() {
     BackHandler.removeEventListener("hardwareBackPress");
+    AppState.removeEventListener("change", this._handleAppStateChange);
   }
 
   render() {
