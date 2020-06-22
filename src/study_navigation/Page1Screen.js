@@ -8,7 +8,7 @@ export default class Page1Screen extends React.Component {
 
   // 如果不在路由表中配置navigationOptions，则会默认使用此处配置。
   static navigationOptions = {
-    title: 'Page1Screen',
+    title: 'Page1',
   }
 
   render() {
@@ -21,10 +21,32 @@ export default class Page1Screen extends React.Component {
         <View style={{ height: 10 }} />
 
         <Button
-          title="to page2 screen"
+          title="Go to Page1"
+          onPress={() => navigation.navigate(RoutePage.PAGE1, { name: 'Devio' })}
+        />
+
+        <View style={{ height: 10 }} />
+
+        <Button
+          title="Go to Page2"
           onPress={() => {
             navigation.navigate(RoutePage.PAGE2)
             // navigation.navigate('Tab2')  // 在bottomTab中导航，需要导航到bottomTab配置的路由表中。
+          }} />
+
+        <View style={{ height: 10 }} />
+
+        <Button
+          title="Go to Page3"
+          onPress={() => navigation.navigate(RoutePage.PAGE3, { title: 'Page3', mode: 'edit' })}
+        />
+
+        <View style={{ height: 10 }} />
+
+        <Button
+          title="Go to Page4"
+          onPress={() => {
+            navigation.navigate(RoutePage.PAGE4)
           }} />
 
         <View style={{ height: 10 }} />

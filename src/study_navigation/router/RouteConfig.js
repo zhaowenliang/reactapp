@@ -11,4 +11,6 @@ export default RoutePage = {
     PAGE2: 'Page2',           // page2
   
     PAGE3: 'Page3',           // page3
-  }
+
+    PAGE4: 'Page4',           // page4
+}
