@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Button, ToastAndroid, View, Alert } from 'react-native';
+import { Text, Button, ToastAndroid, View, Alert, ActivityIndicator } from 'react-native';
 
 import ToastExample from '~/native_modules/ToastExample';
 import AppRCTImageView from '~/native_views/RCTImageView';
@@ -48,6 +48,15 @@ export default class Page2Screen extends React.Component {
               { cancelable: true }
             )
           }} />
+
+        <View style={{ height: 10 }} />
+
+        <View style={{flexDirection: "row", justifyContent: "space-evenly"}}>
+          <ActivityIndicator size="large" color="#0000ff" />
+          <ActivityIndicator size="small" color="#00ff00" />
+          <ActivityIndicator size="large" color="#0000ff" />
+          <ActivityIndicator size="small" color="#00ff00" />
+        </View>
 
         <View style={{ height: 10 }} />
 
