@@ -4,6 +4,7 @@ import Page1Screen from '~/study_navigation/Page1Screen'
 import Page2Screen from '~/study_navigation/Page2Screen'
 import Page3Screen from '~/study_navigation/Page3Screen'
 import Page4Screen from '~/study_navigation/Page4Screen'
+import StorageScreen from '~/study_navigation/StorageScreen'
 
 import RoutePage from './RouteConfig'
 
@@ -26,4 +27,11 @@ export default RouteTable = {
   [RoutePage.PAGE2]: Page2Screen,
   [RoutePage.PAGE3]: Page3Screen,
   [RoutePage.PAGE4]: Page4Screen,
+
+  [RoutePage.Storage]: {
+    screen: StorageScreen,
+    navigationOptions: {
+      title: '存储',
+    }
+  }
 };

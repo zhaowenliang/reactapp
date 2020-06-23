@@ -23,6 +23,13 @@ export default class Page4Screen extends React.Component {
                     title="Go to Home"
                     onPress={() => navigate(RoutePage.HOME)}
                 />
+
+                <View style={{ height: 10 }} />
+
+                <Button
+                    title="Go to Storage"
+                    onPress={() => navigate(RoutePage.Storage)}
+                />
             </>
         );
     }
