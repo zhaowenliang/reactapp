@@ -15,4 +15,8 @@ export default RoutePage = {
     PAGE4: 'Page4',           // page4
 
     Storage: 'Storage',       // storage
+
+    News: 'News',             // News
+
+    Dimenssions: 'Dimenssions', // Dimenssions
 }
