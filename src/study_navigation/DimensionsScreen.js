@@ -6,15 +6,12 @@ const screen = Dimensions.get("screen");
 
 export default class DimissionsScreen extends React.Component {
 
-    state = {
-        dimensions: { window, screen }
-    };
-
     constructor(props) {
         super(props);
         
         this.state = {
             text: 'hahah',
+            dimensions: { window, screen },
         }
     }
 

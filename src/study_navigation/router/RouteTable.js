@@ -5,7 +5,7 @@ import Page2Screen from '~/study_navigation/Page2Screen'
 import Page3Screen from '~/study_navigation/Page3Screen'
 import Page4Screen from '~/study_navigation/Page4Screen'
 import StorageScreen from '~/study_navigation/StorageScreen'
-import NewsScreen from '~/study_navigation/NewsScreen'
+import NewsScreen from '~/study_navigation/news/NewsScreen'
 import DimensionsScreen from '~/study_navigation/DimensionsScreen'
 
 import RoutePage from './RouteConfig'
