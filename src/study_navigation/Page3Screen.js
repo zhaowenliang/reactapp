@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, TextInput, Button } from 'react-native'
 
+
 export default class Page3Screen extends React.Component {
 
     static navigationOptions = ({ navigation, navigationOptions }) => {

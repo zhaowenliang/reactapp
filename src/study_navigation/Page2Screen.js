@@ -11,6 +11,21 @@ export default class Page2Screen extends React.Component {
     header: null, // 默认隐藏标题栏
   }
 
+  constructor(props) {
+    super(props)
+
+    this.onPressToastAndroid = this.onPressToastAndroid.bind(this)
+    this.onPressToastExample = this.onPressToastExample.bind(this)
+  }
+
+  onPressToastAndroid() {
+    ToastAndroid.show("ToastAndroid", ToastAndroid.SHORT)
+  }
+
+  onPressToastExample() {
+    ToastExample.show("ToastExample", ToastAndroid.SHORT)
+  }
+
   render() {
     return (
       <>
@@ -20,17 +35,13 @@ export default class Page2Screen extends React.Component {
 
         <Button
           title="ToastAndroid"
-          onPress={() => {
-            ToastAndroid.show("ToastAndroid", ToastAndroid.SHORT)
-          }} />
+          onPress={this.onPressToastAndroid} />
 
         <View style={{ height: 10 }} />
 
         <Button
           title="ToastExample"
-          onPress={() => {
-            ToastExample.show("ToastExample", ToastAndroid.SHORT)
-          }} />
+          onPress={this.onPressToastExample} />
 
         <View style={{ height: 10 }} />
 
@@ -51,7 +62,7 @@ export default class Page2Screen extends React.Component {
 
         <View style={{ height: 10 }} />
 
-        <View style={{flexDirection: "row", justifyContent: "space-evenly"}}>
+        <View style={{ flexDirection: "row", justifyContent: "space-evenly" }}>
           <ActivityIndicator size="large" color="#0000ff" />
           <ActivityIndicator size="small" color="#00ff00" />
           <ActivityIndicator size="large" color="#0000ff" />

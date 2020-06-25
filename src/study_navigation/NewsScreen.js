@@ -4,6 +4,7 @@ import { RecyclerListView, DataProvider, LayoutProvider } from 'recyclerlistview
 
 import { getMovies } from '~/api/Network';
 
+
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
@@ -13,10 +14,6 @@ const NEWS_ITEM_TYPE = {
 }
 
 export default class NewsScreen extends React.Component {
-
-    state = {
-        dimensions: { window, screen }
-    };
 
     constructor(props) {
         super(props);
@@ -28,6 +25,7 @@ export default class NewsScreen extends React.Component {
         });
 
         this.state = {
+            dimensions: { window, screen },
             dataProvider: this.dataProvider.cloneWithRows(this.dataList),
         }
     }
@@ -58,7 +56,7 @@ export default class NewsScreen extends React.Component {
     }
 
     // 计算item宽高
-    _layoutProvider = new LayoutProvider(
+    layoutProvider = new LayoutProvider(
         // 配置item类型
         (index) => {
             if (index % 3 === 0) {
@@ -85,7 +83,7 @@ export default class NewsScreen extends React.Component {
     )
 
     // 渲染列表视图
-    _rowRenderer = (type, data, index) => {
+    rowRenderer = (type, data, index) => {
 
     }
 
@@ -94,8 +92,8 @@ export default class NewsScreen extends React.Component {
             <>
                 <RecyclerListView
                     dataProvider={this.state.dataProvider}
-                    rowRenderer={this._rowRenderer}
-                    layoutProvider={this._layoutProvider}
+                    layoutProvider={this.layoutProvider}
+                    rowRenderer={this.rowRenderer}
                 />
             </>
         )

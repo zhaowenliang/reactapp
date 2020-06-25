@@ -45,9 +45,7 @@ export default class Page1Screen extends React.Component {
 
         <Button
           title="Go to Page4"
-          onPress={() => {
-            navigation.navigate(RoutePage.PAGE4)
-          }} />
+          onPress={() => navigation.navigate(RoutePage.PAGE4) } />
 
         <View style={{ height: 10 }} />
 
