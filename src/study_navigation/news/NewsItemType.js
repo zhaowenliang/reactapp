@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, Image, Text, StyleSheet } from 'react-native'
+import { Image, Text, StyleSheet, TouchableOpacity, ToastAndroid } from 'react-native'
+
 
 export default class NewsItemType extends React.Component {
 
     static propTypes = {
         width: PropTypes.number,
         height: PropTypes.number,
-        title: PropTypes.string,
+        title: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
         imageHeight: PropTypes.number,
     }
@@ -21,30 +22,41 @@ export default class NewsItemType extends React.Component {
         }
     }
 
+    onPressItem = () => {
+        const { title } = this.props;
+        ToastAndroid.show(title, ToastAndroid.SHORT);
+    }
+
     render() {
         const {
             height = this.state.defaultImageHeight,
             image = this.state.defaultImage,
             title = this.state.defaultTitle,
+            style,
         } = this.props;
-        console.log('NewsItemType ->  height: ' + height + ' image: ' + image + ' title: ' + title);
 
         return (
-            <View style={styles.container}>
+            <TouchableOpacity
+                style={[styles.container, { ...style }]}
+                activeOpacity={0.8}
+                onPress={this.onPressItem}>
                 <Image
                     source={{ uri: image }}
                     style={[styles.image, { height }]} />
 
                 <Text style={styles.title}>{title}</Text>
-            </View>
+            </TouchableOpacity>
         )
     }
 
 }
 
+
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'green',
+        backgroundColor: 'white',
+        borderRadius: 4,
+        padding: 10,
     },
     image: {
         width: '100%',

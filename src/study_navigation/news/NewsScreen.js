@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToastAndroid, Dimensions, ActivityIndicator } from 'react-native';
+import { ToastAndroid, Dimensions, ActivityIndicator, StyleSheet } from 'react-native';
 import { RecyclerListView, DataProvider, LayoutProvider } from 'recyclerlistview';
 
 import { getMovies } from '~/api/Network';
@@ -11,6 +11,8 @@ const screen = Dimensions.get("screen");
 
 const NEWS_ITEM_TYPE = {
     ITEM_TYPE_1: 1,
+    ITEM_TYPE_2: 2,
+    ITEM_TYPE_3: 3,
 }
 
 export default class NewsScreen extends React.Component {
@@ -26,7 +28,13 @@ export default class NewsScreen extends React.Component {
 
         this.layoutProvider = new LayoutProvider(
             (index) => {
-                return NEWS_ITEM_TYPE.ITEM_TYPE_1;
+                if (index % 3 === 1) {
+                    return NEWS_ITEM_TYPE.ITEM_TYPE_2;
+                } else if (index % 3 === 2) {
+                    return NEWS_ITEM_TYPE.ITEM_TYPE_3;
+                } else {
+                    return NEWS_ITEM_TYPE.ITEM_TYPE_1;
+                }
             },
             (type, dim) => {
                 const { width } = this.state.dimensions.window;
@@ -34,10 +42,22 @@ export default class NewsScreen extends React.Component {
                 switch (type) {
                     case NEWS_ITEM_TYPE.ITEM_TYPE_1:
                         dim.width = width;
-                        dim.height = 190;
+                        dim.height = (10 + 20 + 160 + 20 + 4 * 2);
+                        break;
+
+                    case NEWS_ITEM_TYPE.ITEM_TYPE_2:
+                        dim.width = width / 2;
+                        dim.height = (10 + 20 + 160 + 20 + 4 * 2);
+                        break;
+
+                    case NEWS_ITEM_TYPE.ITEM_TYPE_3:
+                        dim.width = width / 2;
+                        dim.height = (10 + 20 + 160 + 20 + 4 * 2);
                         break;
 
                     default:
+                        dim.width = 0;
+                        dim.height = 0;
                         break;
                 }
             }
@@ -77,12 +97,35 @@ export default class NewsScreen extends React.Component {
     rowRenderer = (type, data) => {
         switch (type) {
             case NEWS_ITEM_TYPE.ITEM_TYPE_1:
-                const { title } = data;
+                let { title: title1 } = data;
 
                 return (
                     <NewsItemType
+                        style={styles.itemType1}
                         image="https://facebook.github.io/react/logo-og.png"
-                        title={title}
+                        title={title1}
+                    />
+                )
+
+            case NEWS_ITEM_TYPE.ITEM_TYPE_2:
+                const { title: title2 } = data;
+
+                return (
+                    <NewsItemType
+                        style={styles.itemType2}
+                        image="http://e.hiphotos.baidu.com/zhidao/pic/item/d62a6059252dd42a1c362a29033b5bb5c9eab870.jpg"
+                        title={title2}
+                    />
+                )
+
+            case NEWS_ITEM_TYPE.ITEM_TYPE_3:
+                const { title: title3 } = data;
+
+                return (
+                    <NewsItemType
+                        style={styles.itemType3}
+                        image="http://e.hiphotos.baidu.com/zhidao/pic/item/d62a6059252dd42a1c362a29033b5bb5c9eab870.jpg"
+                        title={title3}
                     />
                 )
 
@@ -91,8 +134,6 @@ export default class NewsScreen extends React.Component {
         }
     }
 
-    // contentContainerStyle={{justifyContent: 'center', alignItems: 'center'}}
-
     render() {
         if (this.state.dataProvider.getSize() === 0) {
             return <ActivityIndicator />
@@ -100,6 +141,7 @@ export default class NewsScreen extends React.Component {
 
         return (
             <RecyclerListView
+                style={{ backgroundColor: '#EDEDF2' }}
                 dataProvider={this.state.dataProvider}
                 layoutProvider={this.layoutProvider}
                 rowRenderer={this.rowRenderer}
@@ -108,3 +150,24 @@ export default class NewsScreen extends React.Component {
     }
 
 }
+
+const styles = StyleSheet.create({
+    itemType1: {
+        marginStart: 12,
+        marginEnd: 12,
+        marginTop: 5,
+        marginBottom: 5,
+    },
+    itemType2: {
+        marginStart: 12,
+        marginEnd: 5,
+        marginTop: 5,
+        marginBottom: 5,
+    },
+    itemType3: {
+        marginStart: 5,
+        marginEnd: 12,
+        marginTop: 5,
+        marginBottom: 5,
+    }
+})
