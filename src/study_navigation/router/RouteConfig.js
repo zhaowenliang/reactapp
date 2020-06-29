@@ -19,4 +19,6 @@ export default RoutePage = {
     News: 'News',             // News
 
     Dimenssions: 'Dimenssions', // Dimenssions
+
+    FlatList: 'FlatList',
 }

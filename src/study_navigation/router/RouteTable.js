@@ -7,6 +7,7 @@ import Page4Screen from '~/study_navigation/Page4Screen'
 import StorageScreen from '~/study_navigation/StorageScreen'
 import NewsScreen from '~/study_navigation/news/NewsScreen'
 import DimensionsScreen from '~/study_navigation/DimensionsScreen'
+import FlatListScreen from "~/study_navigation/FlatListScreen";
 
 import RoutePage from './RouteConfig'
 
@@ -22,6 +23,8 @@ export default RouteTable = {
   [RoutePage.PAGE2]: Page2Screen,
   [RoutePage.PAGE3]: Page3Screen,
   [RoutePage.PAGE4]: Page4Screen,
+
+  [RoutePage.FlatList]: FlatListScreen,
 
   [RoutePage.HOME]: {
     screen: HomeScreen,

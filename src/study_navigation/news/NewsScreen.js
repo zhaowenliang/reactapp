@@ -2,7 +2,7 @@ import React from 'react';
 import { ToastAndroid, Dimensions, ActivityIndicator, StyleSheet } from 'react-native';
 import { RecyclerListView, DataProvider, LayoutProvider } from 'recyclerlistview';
 
-import { getMovies } from '~/api/Network';
+import { getWanBanner } from '~/api/Network';
 import NewsItemType from './NewsItemType';
 
 
@@ -75,7 +75,7 @@ export default class NewsScreen extends React.Component {
 
     // 拉取数据
     getData = () => {
-        getMovies()
+        getWanBanner()
             .then((result) => {
                 this.dataList = result;
                 this.onDataSetChanged();
@@ -97,34 +97,34 @@ export default class NewsScreen extends React.Component {
     rowRenderer = (type, data) => {
         switch (type) {
             case NEWS_ITEM_TYPE.ITEM_TYPE_1:
-                let { title: title1 } = data;
+                let { title: title1, imagePath: imagePath1 } = data;
 
                 return (
                     <NewsItemType
                         style={styles.itemType1}
-                        image="https://facebook.github.io/react/logo-og.png"
+                        image={imagePath1}
                         title={title1}
                     />
                 )
 
             case NEWS_ITEM_TYPE.ITEM_TYPE_2:
-                const { title: title2 } = data;
+                const { title: title2, imagePath: imagePath2 } = data;
 
                 return (
                     <NewsItemType
                         style={styles.itemType2}
-                        image="http://e.hiphotos.baidu.com/zhidao/pic/item/d62a6059252dd42a1c362a29033b5bb5c9eab870.jpg"
+                        image={imagePath2}
                         title={title2}
                     />
                 )
 
             case NEWS_ITEM_TYPE.ITEM_TYPE_3:
-                const { title: title3 } = data;
+                const { title: title3, imagePath: imagePath3 } = data;
 
                 return (
                     <NewsItemType
                         style={styles.itemType3}
-                        image="http://e.hiphotos.baidu.com/zhidao/pic/item/d62a6059252dd42a1c362a29033b5bb5c9eab870.jpg"
+                        image={imagePath3}
                         title={title3}
                     />
                 )
