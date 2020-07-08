@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 // babel-plugin-root-import 导包路径别名
 const rootImportOpts = {
   root: __dirname,
@@ -7,5 +9,5 @@ const rootImportOpts = {
 
 module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
-  plugins: [["babel-plugin-root-import", rootImportOpts]]
+  plugins: [['babel-plugin-root-import', rootImportOpts]],
 };

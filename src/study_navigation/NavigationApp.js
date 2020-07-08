@@ -1,16 +1,14 @@
 import React from 'react';
 import { Platform, BackHandler, AppState, Alert } from 'react-native';
 import { createAppContainer, createStackNavigator, Header } from 'react-navigation';
-import StackViewStyleInterpolator from "react-navigation-stack/src/views/StackView/StackViewStyleInterpolator";
+import StackViewStyleInterpolator from 'react-navigation-stack/src/views/StackView/StackViewStyleInterpolator';
 
 import RouteTable from '~/study_navigation/router/RouteTable';
-import RoutePage from '~/study_navigation/router/RouteConfig'
-
+import RoutePage from '~/study_navigation/router/RouteConfig';
 
 export default class NavigationApp extends React.Component {
-
   state = {
-    appState: AppState.currentState
+    appState: AppState.currentState,
   };
 
   /**
@@ -25,11 +23,11 @@ export default class NavigationApp extends React.Component {
 
     if (navigationIndex === 0) {
       Alert.alert(
-        "请稍等",
-        "确定退出吗？",
+        '请稍等',
+        '确定退出吗？',
         [
-          { text: "取消", onPress: () => null, style: "cancel" },
-          { text: "确定", onPress: () => BackHandler.exitApp() }
+          { text: '取消', onPress: () => null, style: 'cancel' },
+          { text: '确定', onPress: () => BackHandler.exitApp() },
         ],
         { cancelable: true }
       );
@@ -38,34 +36,33 @@ export default class NavigationApp extends React.Component {
     }
 
     return false;
-  }
+  };
 
   /**
    * 监听App前后台变化状态
-   * @param {新的状态} nextAppState 
+   * @param {新的状态} nextAppState
    */
-  _handleAppStateChange = nextAppState => {
+  _handleAppStateChange = (nextAppState) => {
     // if (this.state.appState.match(/inactive|background/) && nextAppState === "active") {
     //   console.log("App has come to the foreground!");
     // }
 
     console.log(`App has come to the ${nextAppState}!`);
-    
+
     this.setState({ appState: nextAppState });
   };
 
   componentDidMount() {
-    BackHandler.addEventListener("hardwareBackPress", this.backAction);
-    AppState.addEventListener("change", this._handleAppStateChange);
+    BackHandler.addEventListener('hardwareBackPress', this.backAction);
+    AppState.addEventListener('change', this._handleAppStateChange);
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener("hardwareBackPress");
-    AppState.removeEventListener("change", this._handleAppStateChange);
+    BackHandler.removeEventListener('hardwareBackPress');
+    AppState.removeEventListener('change', this._handleAppStateChange);
   }
 
   render() {
-
     let initialPageName = this.props.pageName;
     let initialPageParams = this.props.pageParams;
 
@@ -85,16 +82,16 @@ export default class NavigationApp extends React.Component {
       }),
 
       transitionConfig: () => ({
-        screenInterpolator: StackViewStyleInterpolator.forHorizontal,   // 页面切换动画
+        screenInterpolator: StackViewStyleInterpolator.forHorizontal, // 页面切换动画
       }),
 
-      headerLayoutPreset: 'center',       // 标题居中
+      headerLayoutPreset: 'center', // 标题居中
 
       defaultNavigationOptions: {
         headerStyle: {
-          height: Header.HEIGHT,          // 标题栏高度
+          height: Header.HEIGHT, // 标题栏高度
         },
-      }
+      },
     };
 
     const RootNavigator = createStackNavigator(RouteTable, routerConfig);
@@ -103,10 +100,9 @@ export default class NavigationApp extends React.Component {
     return (
       <RootAppContainer
         ref={(page) => {
-          this.page = page
+          this.page = page;
         }}
       />
     );
   }
-
 }

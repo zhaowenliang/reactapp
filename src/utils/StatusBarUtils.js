@@ -1,4 +1,4 @@
-import { Platform, StatusBar } from "react-native";
+import { Platform, StatusBar } from 'react-native';
 
 /**
  * 状态栏高度
@@ -6,6 +6,6 @@ import { Platform, StatusBar } from "react-native";
  * ios平台状态栏高度需要从原生端获取。
  */
 export const statusBarHeight = Platform.select({
-    ios: 0,
-    android: StatusBar.currentHeight,
-})
+  ios: 0,
+  android: StatusBar.currentHeight,
+});

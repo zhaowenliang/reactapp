@@ -1,20 +1,19 @@
 /**
- * API配置
+ * wanandroid base url
  */
-export default class API {
+export const WAN_BASE_URL = 'https://www.wanandroid.com';
 
-    /**
-     * wanandroid banner
-     */
-    static GET_WAN_BANNER = '/banner/json';
+/**
+ * wanandroid banner
+ */
+export const GET_WAN_BANNER = '/banner/json';
 
-    /**
-     * 获取电影列表
-     */
-    static GET_MOVIES = 'https://facebook.github.io/react-native/movies.json';
+/**
+ * 获取电影列表
+ */
+export const GET_MOVIES = 'https://facebook.github.io/react-native/movies.json';
 
-    /**
-     * 获取新闻列表
-     */
-    static GET_NEWS = 'http://c.3g.163.com/nc/article/list/T1467284926140/0-20.html';
-}
+/**
+ * 获取新闻列表
+ */
+export const GET_NEWS = 'http://c.3g.163.com/nc/article/list/T1467284926140/0-20.html';

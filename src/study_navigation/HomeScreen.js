@@ -1,9 +1,7 @@
 import React from 'react';
 import { StatusBar, Text, View, Button } from 'react-native';
 
-
 export default class HomeScreen extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = { showWarning: true };
@@ -11,8 +9,8 @@ export default class HomeScreen extends React.Component {
   }
 
   handleToggleClick() {
-    this.setState(state => ({
-      showWarning: !state.showWarning
+    this.setState((state) => ({
+      showWarning: !state.showWarning,
     }));
   }
 
@@ -29,7 +27,6 @@ export default class HomeScreen extends React.Component {
       </>
     );
   }
-
 }
 
 // custom view

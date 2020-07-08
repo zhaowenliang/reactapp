@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, StyleSheet } from "react-native";
+import { StatusBar, StyleSheet } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 import MyTabBar from './MyTabBar';
@@ -8,93 +8,73 @@ import Page2Screen from '~/study_navigation/Page2Screen';
 import Page3Screen from '~/study_navigation/Page3Screen';
 import Page4Screen from '~/study_navigation/Page4Screen';
 
-
 export default class ScrollableApp extends React.Component {
+  static navigationOptions = {
+    header: null, // 主页无标题
+  };
 
-    static navigationOptions = {
-        header: null,   // 主页无标题
-    }
+  constructor(props) {
+    super(props);
 
-    constructor(props) {
-        super(props)
+    this.state = {
+      tabNames: ['主页', '分类', '书籍', '我的'],
+      tabIconNames: ['ios-home', 'ios-grid', 'ios-book', 'ios-contact'],
+    };
+  }
 
-        this.state = {
-            tabNames: ['主页', '分类', '书籍', '我的'],
-            tabIconNames: ['ios-home', 'ios-grid', 'ios-book', 'ios-contact'],
-        }
-    }
+  render() {
+    let tabNames = this.state.tabNames;
+    let tabIconNames = this.state.tabIconNames;
 
-    render() {
-        let tabNames = this.state.tabNames;
-        let tabIconNames = this.state.tabIconNames;
+    return (
+      <>
+        <StatusBar backgroundColor="#FFF" barStyle={'dark-content'} translucent={false} />
 
-        return (
-            <>
-                <StatusBar
-                    backgroundColor='#FFF'
-                    barStyle={'dark-content'}
-                    translucent={false} />
+        <ScrollableTabView
+          style={styles.container}
+          renderTabBar={() => <MyTabBar tabNames={tabNames} tabIconNames={tabIconNames} />}
+          tabBarPosition={'bottom'}
+          locked={false} // 是否可以滑动，true：不可以滑动，false：可以滑动，默认false。
+          initialPage={0} // 默认页索引
+          prerenderingSiblingsNumber={1} // 预渲染tab页个数，Infinity：预渲染所有，默认0。
+          scrollWithoutAnimation={true} // 切换tab是否不适用动画，true：不使用动画，false：使用动画，默认false。
+          tabBarBackgroundColor="white" // tabar背景颜色，通过props传入renderTabBar，使用props.backgroundColor取出。
+          tabBarActiveTextColor="green" // 激活状态tab文本颜色
+        >
+          <Page1Screen tabLabel="page1" navigation={this.props.navigation} />
 
-                <ScrollableTabView
-                    style={styles.container}
-                    renderTabBar={() => <MyTabBar tabNames={tabNames} tabIconNames={tabIconNames} />}
-                    tabBarPosition={'bottom'}
-                    locked={false}   // 是否可以滑动，true：不可以滑动，false：可以滑动，默认false。
-                    initialPage={0}  // 默认页索引
-                    prerenderingSiblingsNumber={1}  // 预渲染tab页个数，Infinity：预渲染所有，默认0。
-                    scrollWithoutAnimation={true}   // 切换tab是否不适用动画，true：不使用动画，false：使用动画，默认false。
-                    tabBarBackgroundColor='white'   // tabar背景颜色，通过props传入renderTabBar，使用props.backgroundColor取出。
-                    tabBarActiveTextColor='green'   // 激活状态tab文本颜色
-                >
+          <Page2Screen tabLabel="page2" navigation={this.props.navigation} />
 
-                    <Page1Screen
-                        tabLabel="page1"
-                        navigation={this.props.navigation}
-                    />
+          <Page3Screen tabLabel="page3" navigation={this.props.navigation} />
 
-                    <Page2Screen
-                        tabLabel="page2"
-                        navigation={this.props.navigation}
-                    />
-
-                    <Page3Screen
-                        tabLabel="page3"
-                        navigation={this.props.navigation}
-                    />
-
-                    <Page4Screen
-                        tabLabel="page4"
-                        navigation={this.props.navigation}
-                    />
-
-                </ScrollableTabView>
-            </>
-        )
-    }
+          <Page4Screen tabLabel="page4" navigation={this.props.navigation} />
+        </ScrollableTabView>
+      </>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#F5FCFF',
-    },
-    center: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-})
-
+  container: {
+    flex: 1,
+    backgroundColor: '#F5FCFF',
+  },
+  center: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
 
 /*
 
