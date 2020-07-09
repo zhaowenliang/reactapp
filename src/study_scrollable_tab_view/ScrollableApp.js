@@ -18,7 +18,7 @@ export default class ScrollableApp extends React.Component {
 
     this.state = {
       tabNames: ['主页', '分类', '书籍', '我的'],
-      tabIconNames: ['ios-home', 'ios-grid', 'ios-book', 'ios-contact'],
+      tabIconNames: ['home', 'th', 'book', 'user'],
     };
   }
 
