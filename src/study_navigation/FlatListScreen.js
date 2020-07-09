@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, TouchableOpacity, FlatList, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, TouchableOpacity, FlatList, StyleSheet, Text, View } from 'react-native';
 
 const DATA = [
   {
@@ -24,7 +24,7 @@ const DATA = [
   },
   {
     id: '3ac68afc-c605-48d3-a4f8-4',
-    title: '支持水平布局模式。',
+    title: '模式',
   },
   {
     id: '3ac68afc-c605-48d3-a4f8-5',
@@ -49,6 +49,12 @@ const DATA = [
   },
 ];
 
+const wait = (timeout) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, timeout);
+  });
+};
+
 const Item = ({ id, title, selected, onSelect }) => {
   return (
     <TouchableOpacity
@@ -62,6 +68,7 @@ const Item = ({ id, title, selected, onSelect }) => {
 
 const App = () => {
   const [selected, setSelected] = React.useState(new Map());
+  const [refreshing, setRefreshing] = React.useState(false);
 
   const onSelect = React.useCallback(
     (id) => {
@@ -73,18 +80,33 @@ const App = () => {
     [selected]
   );
 
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
+
   const renderItem = ({ item }) => (
     <Item id={item.id} title={item.title} selected={!!selected.get(item.id)} onSelect={onSelect} />
   );
+
+  /*分割线*/
+  const separatorComponent = () => {
+    return <View style={{ height: 1, backgroundColor: 'red' }} />;
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
         renderItem={renderItem}
+        ItemSeparatorComponent={separatorComponent}
         keyExtractor={(item) => item.id}
         extraData={selected}
         numColumns={2}
+        columnWrapperStyle={styles.row}
+        onRefresh={onRefresh}
+        refreshing={refreshing}
       />
     </SafeAreaView>
   );
@@ -102,6 +124,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
+  },
+  row: {
+    flexWrap: 'wrap',
   },
 });
 
