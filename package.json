@@ -13,8 +13,8 @@
     "@react-native-community/async-storage": "^1.11.0",
     "@react-native-community/viewpager": "^4.0.1",
     "prop-types": "^15.7.2",
-    "react": "16.11.0",
-    "react-native": "^0.62.2",
+    "react": "16.13.1",
+    "react-native": "0.63.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-screens": "^2.8.0",
     "react-native-scrollable-tab-view": "^1.0.0",
@@ -24,8 +24,8 @@
     "recyclerlistview": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/runtime": "^7.9.2",
+    "@babel/core": "^7.10.4",
+    "@babel/runtime": "^7.10.4",
     "@react-native-community/eslint-config": "^1.1.0",
     "babel-jest": "^25.4.0",
     "babel-plugin-root-import": "^6.5.0",
@@ -36,7 +36,7 @@
     "jest": "^25.4.0",
     "metro-react-native-babel-preset": "^0.59.0",
     "prettier": "^2.0.5",
-    "react-test-renderer": "16.11.0"
+    "react-test-renderer": "16.13.1"
   },
   "jest": {
     "preset": "react-native"

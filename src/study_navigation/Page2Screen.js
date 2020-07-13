@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, Button, ToastAndroid, View, Alert, ActivityIndicator } from 'react-native';
 
 import ToastExample from '~/native_modules/ToastExample';
-import AppRCTImageView from '~/native_views/RCTImageView';
+import CustomRCTImageView from '~/native_views/RCTImageView';
 
 export default class Page2Screen extends React.Component {
   static navigationOptions = {
@@ -66,7 +66,7 @@ export default class Page2Screen extends React.Component {
 
         <View style={{ height: 10 }} />
 
-        <AppRCTImageView
+        <CustomRCTImageView
           src={[{ uri: 'https://facebook.github.io/react/logo-og.png' }]}
           style={[
             { alignSelf: 'center', margin: 4 },
