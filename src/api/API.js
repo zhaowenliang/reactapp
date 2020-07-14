@@ -11,7 +11,7 @@ export const GET_WAN_BANNER = '/banner/json';
 /**
  * 获取电影列表
  */
-export const GET_MOVIES = 'https://facebook.github.io/react-native/movies.json';
+export const GET_MOVIES = 'https://reactnative.dev/movies.json';
 
 /**
  * 获取新闻列表
